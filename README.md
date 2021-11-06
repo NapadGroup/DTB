@@ -18,7 +18,8 @@ python is often installed by default on linux distributions, but if it is not in
 ### One Line Installer
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/GodratGroup/DTB/main/install.sh)"
-```### Git Clone & Install
+```
+### Git Clone & Install
 
 ```
 git clone https://github.com/GodratGroup/DTB.git
