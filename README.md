@@ -1,6 +1,6 @@
 <div align="center">
   
-![Logo](/DTB-logo.jpg)
+![Logo](/logo/DTB-logo.jpg)
 
 Install .deb packages on any distribution:)
   
@@ -17,9 +17,9 @@ python is often installed by default on linux distributions, but if it is not in
 
 ### One Line Installer
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/GodratGroup/DTB/main/online-install.sh)"
-```
-### Git Clone & Install
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/GodratGroup/DTB/main/install.sh)"
+```### Git Clone & Install
+
 ```
 git clone https://github.com/GodratGroup/DTB.git
 chmod +x install.sh
