@@ -3,6 +3,7 @@
 clear
 
 # colors
+
 RED=`tput setaf 1`
 GREEN=`tput setaf 2`
 YELLOW=`tput setaf 3`
@@ -23,9 +24,9 @@ fi
 
 function file_path()
 {
-    FULL_PATH="/usr/local/bin/dtb"
+    FULL_PATH="/usr/bin/dtb"
     echo -e "${BLUE}Choose your intallation ->\n1) Online installation\n2) Offline installation"
-    read -p "${RED}Enter something >>" method
+    read -p "${RED}Enter something >> " method
 
     if [ -f $FULL_PATH ]; then
         :
@@ -33,12 +34,10 @@ function file_path()
 
     if [ "$method" == "2" ]; then
             cp src/DTB.py $FULL_PATH
-            echo "${GREEN}Use dtb Command to Run DTB"
 
     elif [ "$method" == "1" ]; then
         wget https://raw.githubusercontent.com/GodratGroup/DTB/main/src/DTB.py -O $FULL_PATH
         chmod +x $FULL_PATH
-        echo "${GREEN}Use dtb Command to Run DTB"}
 
     else
         echo -e "${RED} Wrong input."
@@ -61,7 +60,7 @@ function run_installation()
     elif [ $(command -v rpm) &> /dev/null ]; then
         rpm install -y $1 1> /dev/null
     elif [ $(command -v eopkg) &> /dev/null ]; then
-        eopkg it $1 -y 1> /dev/null
+        eopkg it -y $1 1> /dev/null
     else
         echo -e "${RED}Sorry we can't support your distro right now, please install the $1 package manually.\n Thanks for supporting us."
     fi
@@ -92,7 +91,8 @@ function main()
     file_path
     check_python
     install_binutils
-    python3 $FULL_PATH 1>/dev/null
+    echo "${GREEN}Use dtb Command to Run DTB"
+    exit
 }
 
 main
