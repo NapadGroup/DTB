@@ -1,15 +1,23 @@
+#!/usr/bin/python3
+
 import os
-import os.path
-import colorama
-from colorama import Fore
+
+try:
+    from colorama import Fore, init
+except ModuleNotFoundError:
+    os.system('pip3 install colorama')
+    from colorama import Fore, init
+
+
+init(autoreset=True)
 
 
 class DebianToBinary:
+
     def __init__(self):
         self.path = input("Pleas enter your .deb path -> ")
 
     def start(self):
-
         # Extract
         print(Fore.GREEN + 'Start Repacking ....')
         print(Fore.RESET + '')
@@ -21,7 +29,6 @@ class DebianToBinary:
         os.system(f"cd {folder_path}; tar xvf {folder_path}/control.tar.xz ")
         os.system(f"cd {folder_path}; tar xvf {folder_path}/data.tar.xz ")
         os.system("clear")
-
         #    Start Install Packages
         print(Fore.GREEN + 'Start installer....')
         print(Fore.RESET + '')
