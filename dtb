@@ -2,37 +2,73 @@
 
 clear
 
-### Install binutils
+# colors
 
-    if hash apt 2>/dev/null                        #Debian
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+YELLOW=`tput setaf 3`
+BLUE=`tput setaf 4`
+PURPLE=`tput setaf 5`
+CYAN=`tput setaf 6`
+WHITE=`tput setaf 7`
+BLACK=`tput setaf 8`
+ORANGE=`tput setaf 9`
+
+echo "${YELLOW}Checking Dependencies..."
+
+### check python
+
+
+if hash python3 2>/dev/null
+then
+
+    echo "${GREEN}Python Installed ✔️"
+
+
+    ### Install colorama 
+
+    pip3 install colorama
+    echo "${GREEN}Colorama Installed ✔️"
+
+    ### check & Install binutils
+
+    if hash apt 2>/dev/null     #Debian
     then
         binutils=$(sudo apt install binutils)
+        echo "${GREEN}Binutils Installed ✔️"
         clear
-        python3 DTB.py
-    elif hash pacman 2>/dev/null                    #ArchLinux
+        python3 /usr/share/DTB/DTB.py
+    elif hash pacman 2>/dev/null    #ArchLinux
     then
         binutils=$(sudo pacman -S binutils)
+        echo "${GREEN}Binutils Installed ✔️"
         clear
-        python3 DTB.py
-    elif hash eopkg 2>/dev/null			    #Solus
+        python3 /usr/share/DTB/DTB.py
+    elif hash eopkg 2>/dev/null     #Solus
     then
-    	binutils=$(sudo eopkg it binutils)
-	clear
-	python3 DTB.py
+        binutils=$(sudo eopkg it binutils)
+        echo "${GREEN}Binutils Installed ✔️"
+        clear
+        python3 /usr/share/DTB/DTB.py
     else
         binutils="Your distribution was not detected"
-    	echo $binutils
+        echo $binutils
         echo "You Inatlled binutils? (Y/n)"
-	read binutils_install
+        read binutils_install
         if [ $binutils_install == "y" ]
         then
-	    clear
-	    python3 DTB.py
-	elif [ $binutils_install == "Y" ]
+            echo "${GREEN}Binutils Installed ✔️"
+            clear
+            python3 /usr/share/DTB/DTB.py
+        elif [ $binutils_install == "Y" ]
         then
-	    clear
-	    python3 DTB.py
-	else
-	    echo "please install binutils.."
-	fi
+            echo "${GREEN}Binutils Installed ✔️"
+            clear
+            python3 /usr/share/DTB/DTB.py
+        else
+            echo "please install binutils.."
+        fi
     fi
+else
+    echo "python not installed, please install python"
+fi
