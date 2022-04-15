@@ -37,6 +37,6 @@ enter `dtb` to use DTB
 
 This Project Under [2-Clause BSD License](https://opensource.org/licenses/BSD-2-Clause)
 
-Thanks for [Dr.M0h4mM4D](https://github.com/DrM0h4MM4d)
+Thanks to [Dr.M0h4mM4D](https://github.com/DrM0h4MM4d)
 
-**By** [GGroup](https://github.com/GodratGroup) &copy;
+**By** [NapādGroup](https://github.com/NapadGroup) &copy;
